@@ -22,33 +22,34 @@
             font-family: 'Roboto', sans-serif;
             background-color: var(--main-bg-color);
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            flex-direction: column;
+            min-height: 100vh;
             color: var(--primary-color);
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
         }
         .sidebar {
             background-color: var(--light-bg-color);
             width: 25%;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .main-content {
             background-color: var(--card-bg-color);
             width: 75%;
             padding: 40px;
             overflow-y: auto;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
         }
         h1, h2, h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
             border: 2px solid var(--accent-color);
@@ -62,11 +63,6 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             padding: 20px;
             margin-bottom: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .post-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .tag-input {
             width: 100%;
@@ -75,10 +71,6 @@
             border: 1px solid var(--accent-color);
             border-radius: 5px;
             outline: none;
-            transition: border-color 0.3s;
-        }
-        .tag-input:focus {
-            border-color: var(--primary-color);
         }
         .add-btn {
             padding: 10px;
@@ -87,5 +79,80 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s;
         }
+        .add-btn:hover {
+            background-color: #B38383;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: var(--light-bg-color);
+            border-top: 1px solid var(--accent-color);
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 10px;
+            }
+            .main-content {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Stylish Blog</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>About Me</h2>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <p>Hello, I'm [Your Name]. I love writing and sharing my thoughts on various topics. Welcome to my archive!</p>
+        </aside>
+
+        <main class="main-content">
+            <h2>Article Archive</h2>
+            
+            <section class="post-list">
+                <div class="post-item">
+                    <h3>Article 1</h3>
+                    <p>Category: Fiction</p>
+                    <p>Tags: Story, Adventure</p>
+                </div>
+                <div class="post-item">
+                    <h3>Article 2</h3>
+                    <p>Category: Non-fiction</p>
+                    <p>Tags: History, Analysis</p>
+                </div>
+            </section>
+
+            <section class="tag-management">
+                <h2>Add Tags & Archive</h2>
+                <input type="text" class="tag-input" placeholder="Add new tag">
+                <button class="add-btn">Add Tag</button>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Stylish Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.add-btn').addEventListener('click', function() {
+            const tagInput = document.querySelector('.tag-input');
+            if (tagInput.value.trim()) {
+                alert('Tag added: ' + tagInput.value);
+                tagInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
