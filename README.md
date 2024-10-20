@@ -3,178 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Stylish Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Alexander's Conspiracy Page</title>
     <style>
-        :root {
-            --main-bg-color: #F5D1D1; /* 柔和的粉色背景 */
-            --light-bg-color: #FFF1F1; /* 浅粉色 */
-            --card-bg-color: #FFFFFF; /* 卡片背景 */
-            --primary-color: #854848; /* 深粉灰色 */
-            --accent-color: #D8A7A7; /* 辅助粉色 */
-            --shadow-color: rgba(0, 0, 0, 0.1); /* 阴影颜色 */
-        }
-        * {
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #FF00FF;
+            color: #00FFFF;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'PingFang SC', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, var(--main-bg-color), #f8e6e6);
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            color: var(--primary-color);
-        }
-        .container {
-            display: flex;
-            flex: 1;
-            flex-direction: row;
-            margin: 20px;
+            height: 100vh;
+            background-image: url('https://www.transparenttextures.com/patterns/noise-lines.png'); /* 像素背景纹理 */
         }
         .sidebar {
-            background-color: var(--light-bg-color);
-            width: 25%;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px var(--shadow-color);
+            width: 20%;
+            background-color: #00FF00;
+            padding: 10px;
+            border-right: 6px solid #000;
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: inset -4px -4px 0px #FFF, inset 4px 4px 0px #000;
         }
         .main-content {
-            background-color: var(--card-bg-color);
-            width: 75%;
-            margin-left: 20px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px var(--shadow-color);
-            overflow-y: auto;
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .window {
+            width: 90%;
+            background-color: #FF0000;
+            border: 10px solid #000;
+            box-shadow: 6px 6px 0px #000, -6px -6px 0px #FFF;
+            image-rendering: pixelated;
+            margin-bottom: 20px;
+        }
+        .window-header {
+            background-color: #FFFF00;
+            color: #000;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+        .window-header .title {
+            font-size: 18px;
+        }
+        .window-header .buttons span {
+            width: 16px;
+            height: 16px;
+            background-color: #C0C0C0;
+            border: 3px solid #000;
+            display: inline-block;
+            margin-right: 3px;
+            image-rendering: pixelated;
+        }
+        .window-content {
+            padding: 15px;
+            background-color: #000;
+            color: #FFF;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 18px;
+            image-rendering: pixelated;
         }
         .profile-img {
             width: 100%;
-            max-width: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid var(--accent-color);
-            transition: transform 0.3s;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-        .post-list {
-            margin-bottom: 40px;
-        }
-        .post-item {
-            background-color: var(--light-bg-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .post-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px var(--shadow-color);
-        }
-        .tag-input {
-            width: 100%;
-            padding: 10px;
+            max-width: 120px;
+            image-rendering: pixelated;
             margin-bottom: 15px;
-            border: 1px solid var(--accent-color);
-            border-radius: 5px;
-            outline: none;
+            border: 6px solid #FFF;
         }
-        .add-btn {
-            padding: 10px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .add-btn:hover {
-            background-color: #B38383;
-        }
-        .add-btn:active {
-            transform: scale(0.98);
-        }
-        footer {
+        .button {
+            width: 120px;
+            padding: 8px;
+            margin-top: 15px;
             text-align: center;
-            padding: 10px;
-            background-color: var(--light-bg-color);
-            border-top: 1px solid var(--accent-color);
-            border-radius: 0 0 10px 10px;
+            background-color: #0000FF;
+            border: 3px solid #000;
+            cursor: pointer;
+            box-shadow: 6px 6px 0px #000;
+            font-size: 14px;
+            image-rendering: pixelated;
         }
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .main-content {
-                width: 100%;
-                margin-left: 0;
-            }
+        .button:hover {
+            background-color: #000080;
+        }
+        .radio-station {
+            margin-top: 30px;
+            background-color: #00FFFF;
+            padding: 15px;
+            border: 6px solid #000;
+            text-align: center;
+            font-size: 18px;
+            width: 100%;
+            box-shadow: 3px 3px 0px #000;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>My Stylish Blog</h1>
-    </header>
-
-    <div class="container">
-        <aside class="sidebar">
-            <h2>About Me</h2>
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <p>Hello, I'm [Your Name]. I love writing and sharing my thoughts on various topics. Welcome to my archive!</p>
-        </aside>
-
-        <main class="main-content">
-            <h2>Article Archive</h2>
-            
-            <section class="post-list">
-                <div class="post-item">
-                    <h3>Article 1</h3>
-                    <p>Category: Fiction</p>
-                    <p>Tags: Story, Adventure</p>
-                </div>
-                <div class="post-item">
-                    <h3>Article 2</h3>
-                    <p>Category: Non-fiction</p>
-                    <p>Tags: History, Analysis</p>
-                </div>
-            </section>
-
-            <section class="tag-management">
-                <h2>Add Tags & Archive</h2>
-                <input type="text" class="tag-input" placeholder="Add new tag">
-                <button class="add-btn">Add Tag</button>
-            </section>
-        </main>
+    <div class="sidebar">
+        <h2>About Me</h2>
+        <img src="/mnt/data/A_pixelated_avatar_of_a_scruffy_white_middle-aged_.png" alt="Profile Picture" class="profile-img">
+        <p>Name: Alexander</p>
+        <p>Age: 45</p>
+        <p>I am Alexander, the truth seeker! I’ve uncovered the secrets they don’t want you to know—lizard people, mutants, and the REAL shape of our planet. If you dare, contact me at alexander@conspiracy.net, or visit my HQ at 123 Unknown Street, Nowhereville. Don’t let them silence you!</p>
     </div>
 
-    <footer>
-        <p>&copy; 2024 My Stylish Blog. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.querySelector('.add-btn').addEventListener('click', function() {
-            const tagInput = document.querySelector('.tag-input');
-            if (tagInput.value.trim()) {
-                alert('Tag added: ' + tagInput.value);
-                tagInput.value = '';
-            }
-        });
-    </script>
+    <div class="main-content">
+        <div class="window">
+            <div class="window-header">
+                <div class="title">My Beliefs and Research</div>
+                <div class="buttons">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="window-content">
+                <p>Welcome! I am Alexander, and I have dedicated my life to exposing the TRUTH. The government, the media, and even your neighbors are hiding things from you. Did you know that lizard people are walking among us, controlling every aspect of society? I have proof, but they want to silence me.</p>
+                <p>Mutants? Yes, they are REAL. The government has been conducting experiments for years, and some of us know too much. As for the Earth? It’s flat—don’t be fooled by the lies of ‘science’ and ‘astronauts’. I’ve done the research, I’ve connected the dots, and I am here to share the REAL story with you.</p>
+                <p>Follow me, and together we will unveil the mysteries of the universe. The truth is out there, and it’s time for us to take it back!</p>
+            </div>
+        </div>
+        
+        <div class="radio-station">
+            <p>Broadcasting Live: Alexander's Conspiracy Radio - Tune in and hear the TRUTH they don’t want you to know!</p>
+        </div>
+    </div>
 </body>
 </html>
