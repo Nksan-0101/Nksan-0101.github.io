@@ -8,10 +8,11 @@
     <style>
         :root {
             --main-bg-color: #F5D1D1; /* 柔和的粉色背景 */
-            --light-bg-color: #FAE6E6; /* 浅粉色 */
-            --card-bg-color: #FFF8F8; /* 卡片背景 */
+            --light-bg-color: #FFF1F1; /* 浅粉色 */
+            --card-bg-color: #FFFFFF; /* 卡片背景 */
             --primary-color: #854848; /* 深粉灰色 */
             --accent-color: #D8A7A7; /* 辅助粉色 */
+            --shadow-color: rgba(0, 0, 0, 0.1); /* 阴影颜色 */
         }
         * {
             margin: 0;
@@ -19,8 +20,8 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--main-bg-color);
+            font-family: 'PingFang SC', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--main-bg-color), #f8e6e6);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -30,29 +31,41 @@
             display: flex;
             flex: 1;
             flex-direction: row;
+            margin: 20px;
         }
         .sidebar {
             background-color: var(--light-bg-color);
             width: 25%;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .main-content {
             background-color: var(--card-bg-color);
             width: 75%;
+            margin-left: 20px;
             padding: 40px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px var(--shadow-color);
             overflow-y: auto;
         }
         h1, h2, h3 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .profile-img {
             width: 100%;
             max-width: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
-            border: 2px solid var(--accent-color);
+            border: 3px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
         }
         .post-list {
             margin-bottom: 40px;
@@ -60,9 +73,14 @@
         .post-item {
             background-color: var(--light-bg-color);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px var(--shadow-color);
             padding: 20px;
             margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
         .tag-input {
             width: 100%;
@@ -79,16 +97,20 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .add-btn:hover {
             background-color: #B38383;
+        }
+        .add-btn:active {
+            transform: scale(0.98);
         }
         footer {
             text-align: center;
             padding: 10px;
             background-color: var(--light-bg-color);
             border-top: 1px solid var(--accent-color);
+            border-radius: 0 0 10px 10px;
         }
         @media (max-width: 768px) {
             .container {
@@ -96,11 +118,11 @@
             }
             .sidebar {
                 width: 100%;
-                padding: 10px;
+                margin-bottom: 20px;
             }
             .main-content {
                 width: 100%;
-                padding: 20px;
+                margin-left: 0;
             }
         }
     </style>
