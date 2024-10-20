@@ -106,7 +106,7 @@
         <div class="profile">
             <img src="https://i.ibb.co/72G6trd/IMG-3534.jpg" alt="Profile Picture" class="profile-img">
             <div class="intro">
-                <p>こんにちは！私は[奈子]です！日常生活やお気に入りのことについて書いています。どうぞ楽しんでくださいね！😊</p>
+                <p>こんにちは！私は奈子です！日常生活やお気に入りのことについて書いています。どうぞ楽しんでくださいね！😊</p>
             </div>
         </div>
 
@@ -114,14 +114,14 @@
             <h2 class="post-title">🌸 今日のランチ 🌸</h2>
             <p class="date">2024年10月20日</p>
             <p class="post-content">今日はお友達とカフェでランチをしました！美味しいパフェとパンケーキが最高でした。また行きたいなぁ〜！💗</p>
-            <img src="https://www.example.com/gif1.gif" alt="Cute Icon" class="gif-icon">
+            <img src="https://ibb.co/nmNvz1h" alt="Cute Icon" class="gif-icon">
         </div>
 
         <div class="post">
             <h2 class="post-title">✨ 新しいドレス ✨</h2>
             <p class="date">2024年10月19日</p>
             <p class="post-content">昨日、ずっと欲しかったドレスを買いました！色はパステルピンクで、リボンがいっぱいついてて可愛いです。今度写真を載せますね！📷</p>
-            <img src="https://www.example.com/gif2.gif" alt="Cute Icon" class="gif-icon">
+            <img src="https://ibb.co/jvM1gQs" alt="Cute Icon" class="gif-icon">
         </div>
 
         <a href="#" class="button">日記を書く</a>
